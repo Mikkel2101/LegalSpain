@@ -1,0 +1,100 @@
+---
+import type { Translations } from '../i18n/index';
+
+interface Props {
+  tr: Translations;
+}
+
+const { tr } = Astro.props;
+const { contact } = tr;
+
+// Formsubmit.co – gratis, ingen konto. Bytt til kundens e-post.
+// Første innsending trigger aktiveringsmail til adressen under.
+// Når kunden er godkjent: bytt til Formspree eller behold denne.
+const FORM_EMAIL = 'post@legalspania.no';
+---
+
+<section id="kontakt" class="bg-navy py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+      <!-- Left: info -->
+      <div class="space-y-8 text-sand">
+        <div>
+          <h2 class="font-serif text-4xl lg:text-5xl text-white mb-4">{contact.heading}</h2>
+          <p class="text-sand/60 text-lg font-light">{contact.subheading}</p>
+        </div>
+
+        <a
+          href={`tel:${contact.phone.replace(/\s/g, '')}`}
+          class="flex items-center gap-4 group"
+        >
+          <div class="w-12 h-12 border border-gold/40 flex items-center justify-center group-hover:bg-gold/10 transition-colors">
+            <svg class="w-5 h-5 text-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+            </svg>
+          </div>
+          <span class="text-xl font-medium text-white group-hover:text-gold transition-colors">{contact.phone}</span>
+        </a>
+
+        <!-- Costs info box -->
+        <div class="border border-white/10 p-6 space-y-3">
+          <h4 class="font-serif text-lg text-white">{contact.costs.heading}</h4>
+          <p class="text-sand/55 text-sm leading-relaxed font-light">{contact.costs.text}</p>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <form
+        action={`https://formsubmit.co/${FORM_EMAIL}`}
+        method="POST"
+        class="space-y-5"
+      >
+        <input type="hidden" name="_subject" value="Ny henvendelse – Legal Spania" />
+        <input type="hidden" name="_captcha" value="false" />
+        <div>
+          <label class="block text-sand/60 text-xs tracking-widest uppercase mb-2" for="name">
+            {contact.form.name}
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            class="w-full bg-white/5 border border-white/15 text-white placeholder-sand/30 px-4 py-3.5 focus:outline-none focus:border-gold/60 transition-colors"
+          />
+        </div>
+        <div>
+          <label class="block text-sand/60 text-xs tracking-widest uppercase mb-2" for="email">
+            {contact.form.email}
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class="w-full bg-white/5 border border-white/15 text-white placeholder-sand/30 px-4 py-3.5 focus:outline-none focus:border-gold/60 transition-colors"
+          />
+        </div>
+        <div>
+          <label class="block text-sand/60 text-xs tracking-widest uppercase mb-2" for="message">
+            {contact.form.message}
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            class="w-full bg-white/5 border border-white/15 text-white placeholder-sand/30 px-4 py-3.5 focus:outline-none focus:border-gold/60 transition-colors resize-none"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="w-full bg-gold hover:bg-gold-light text-white py-4 font-sans font-semibold text-sm tracking-widest uppercase transition-colors duration-200"
+        >
+          {contact.form.submit}
+        </button>
+      </form>
+
+    </div>
+  </div>
+</section>

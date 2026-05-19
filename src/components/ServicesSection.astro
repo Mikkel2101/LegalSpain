@@ -1,0 +1,50 @@
+---
+import type { Translations } from '../i18n/index';
+
+interface Props {
+  tr: Translations;
+}
+
+const { tr } = Astro.props;
+const { services } = tr;
+
+const icons = ['M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6', 'M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z', 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z', 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z'];
+---
+
+<section id="tjenester" class="bg-white py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <!-- Header -->
+    <div class="text-center mb-16 max-w-2xl mx-auto">
+      <h2 class="font-serif text-4xl lg:text-5xl text-navy mb-4">{services.heading}</h2>
+      <p class="text-navy/55 text-lg font-light">{services.subheading}</p>
+    </div>
+
+    <!-- Services grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border border-navy/10">
+      {
+        services.items.map((item, i) => (
+          <div class="p-8 lg:p-10 border-b border-r border-navy/10 group hover:bg-navy transition-colors duration-300 last:border-r-0 sm:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r lg:[&:nth-child(4n)]:border-r-0 [&:nth-last-child(-n+2)]:border-b-0 sm:[&:nth-last-child(-n+2)]:border-b-0 lg:[&:nth-last-child(-n+4)]:border-b-0">
+            <div class="mb-6">
+              <svg
+                class="w-8 h-8 text-gold"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d={icons[i]} />
+              </svg>
+            </div>
+            <h3 class="font-serif text-xl text-navy group-hover:text-white mb-3 transition-colors duration-300">
+              {item.title}
+            </h3>
+            <p class="text-navy/55 group-hover:text-sand/70 text-sm leading-relaxed transition-colors duration-300">
+              {item.text}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,97 @@
+---
+import type { Translations } from '../i18n/index';
+
+interface Props {
+  tr: Translations;
+}
+
+const { tr } = Astro.props;
+---
+
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background image -->
+  <div class="absolute inset-0">
+    <img
+      src="/assets/images/hero-bakgrunn.jpg"
+      alt="La Manga del Mar Menor"
+      class="w-full h-full object-cover object-center"
+    />
+    <!-- Gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-b from-navy/60 via-navy/55 to-navy/80"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="relative z-10 text-center px-6 max-w-4xl mx-auto pt-20">
+    <!-- Location label -->
+    <p
+      class="text-sand/70 text-xs sm:text-sm tracking-[0.35em] uppercase mb-6 font-light"
+      style="animation: fadeUp 0.8s ease-out both"
+    >
+      {tr.hero.location}
+    </p>
+
+    <!-- Main tagline -->
+    <h1
+      class="font-serif text-4xl sm:text-6xl lg:text-7xl text-white leading-tight mb-6"
+      style="animation: fadeUp 0.8s ease-out 0.15s both"
+    >
+      {tr.hero.tagline}
+    </h1>
+
+    <!-- Subheading -->
+    <p
+      class="font-serif italic text-xl sm:text-2xl text-sand/80 mb-4"
+      style="animation: fadeUp 0.8s ease-out 0.25s both"
+    >
+      {tr.hero.heading}
+    </p>
+
+    <!-- Body -->
+    <p
+      class="text-sand/65 text-base sm:text-lg max-w-2xl mx-auto mb-10 font-light leading-relaxed"
+      style="animation: fadeUp 0.8s ease-out 0.35s both"
+    >
+      {tr.hero.subtext}
+    </p>
+
+    <!-- CTAs -->
+    <div
+      class="flex flex-col sm:flex-row gap-4 justify-center"
+      style="animation: fadeUp 0.8s ease-out 0.45s both"
+    >
+      <a
+        href="#kontakt"
+        class="bg-gold hover:bg-gold-light text-white px-8 py-4 font-sans font-semibold text-sm tracking-widest uppercase transition-colors duration-200"
+      >
+        {tr.hero.cta}
+      </a>
+      <a
+        href="#eiendommer"
+        class="border border-sand/40 hover:border-sand text-sand/80 hover:text-sand px-8 py-4 font-sans font-medium text-sm tracking-widest uppercase transition-colors duration-200"
+      >
+        {tr.hero.ctaSecondary}
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div
+    class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-sand/40"
+    style="animation: fadeUp 1s ease-out 0.8s both"
+  >
+    <div class="w-px h-10 bg-gradient-to-b from-transparent to-sand/40"></div>
+  </div>
+</section>
+
+<style>
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

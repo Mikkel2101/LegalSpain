@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import PropertySection from '../../components/PropertySection.astro';
+import TrustSection from '../../components/TrustSection.astro';
+import ServicesSection from '../../components/ServicesSection.astro';
+import BookingSection from '../../components/BookingSection.astro';
+import Gallery from '../../components/Gallery.astro';
+import AboutSection from '../../components/AboutSection.astro';
+import ContactForm from '../../components/ContactForm.astro';
+import { t } from '../../i18n/index';
+
+const tr = t('es');
+---
+
+<Layout lang="es">
+  <Hero tr={tr} />
+  <PropertySection tr={tr} />
+  <TrustSection tr={tr} />
+  <ServicesSection tr={tr} />
+  <BookingSection tr={tr} />
+  <Gallery tr={tr} />
+  <AboutSection tr={tr} />
+  <ContactForm tr={tr} />
+</Layout>

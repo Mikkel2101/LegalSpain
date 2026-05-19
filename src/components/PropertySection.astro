@@ -1,0 +1,103 @@
+---
+import type { Translations } from '../i18n/index';
+
+interface Props {
+  tr: Translations;
+}
+
+const { tr } = Astro.props;
+const { featured } = tr;
+---
+
+<section id="eiendommer" class="bg-sand-light py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <!-- Section header -->
+    <div class="mb-16 max-w-xl">
+      <span class="inline-block bg-gold text-white text-xs font-bold tracking-[0.2em] uppercase px-3 py-1.5 mb-6">
+        {featured.badge}
+      </span>
+      <h2 class="font-serif text-4xl lg:text-5xl text-navy leading-tight mb-4">
+        {featured.heading}
+      </h2>
+      <p class="text-navy/50 text-sm tracking-wide">
+        {featured.location}
+      </p>
+    </div>
+
+    <!-- Main content grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+      <!-- Left: info -->
+      <div class="space-y-8">
+        <p class="text-navy/75 text-lg leading-relaxed">
+          {featured.description}
+        </p>
+
+        <!-- Prices -->
+        <div class="grid grid-cols-2 gap-4">
+          <div class="border border-navy/15 p-6 bg-white">
+            <p class="font-serif text-2xl lg:text-3xl text-navy font-medium">{featured.price1}</p>
+            <p class="text-navy/50 text-sm mt-1">{featured.price1Label}</p>
+          </div>
+          <div class="border border-gold/40 bg-gold/5 p-6">
+            <p class="font-serif text-2xl lg:text-3xl text-navy font-medium">{featured.price2}</p>
+            <p class="text-navy/50 text-sm mt-1">{featured.price2Label}</p>
+          </div>
+        </div>
+
+        <!-- Specs -->
+        <div>
+          <p class="text-xs font-semibold tracking-[0.2em] uppercase text-navy/40 mb-4">
+            {featured.specsTitle}
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {
+              featured.specs.map((spec) => (
+                <div class="text-center border border-navy/10 p-4 bg-white/50">
+                  <p class="font-serif text-2xl text-navy font-medium">{spec.value}</p>
+                  <p class="text-navy/45 text-xs mt-1">{spec.label}</p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <a
+          href="#kontakt"
+          class="inline-block bg-navy hover:bg-navy-light text-white px-8 py-4 font-sans font-semibold text-sm tracking-widest uppercase transition-colors duration-200"
+        >
+          {featured.cta}
+        </a>
+      </div>
+
+      <!-- Right: images -->
+      <div class="space-y-4">
+        <div class="aspect-[4/3] overflow-hidden">
+          <img
+            src="/assets/images/la-manga-beach-club.jpg"
+            alt="La Manga Beach Club"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+          />
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img
+              src="/assets/images/eiendom-eksterior.jpg"
+              alt="Eiendom eksterior"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+          <div class="aspect-[4/3] overflow-hidden">
+            <img
+              src="/assets/images/legal-11b-eiendom.jpg"
+              alt="La Manga eiendom"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,47 @@
+---
+import type { Translations } from '../i18n/index';
+
+interface Props {
+  tr: Translations;
+}
+
+const { tr } = Astro.props;
+const { gallery } = tr;
+
+const images = [
+  { src: '/assets/images/la-manga-strand.jpg', alt: 'La Manga strand', class: 'col-span-2 row-span-2' },
+  { src: '/assets/images/paradise-between-2-seas.jpg', alt: 'Paradis mellom to hav', class: '' },
+  { src: '/assets/images/las-velas-villa.jpg', alt: 'Las Velas villa', class: '' },
+  { src: '/assets/images/engelsk-hero-bakgrunn.jpg', alt: 'La Manga', class: '' },
+  { src: '/assets/images/kontor-bilde.jpg', alt: 'Legal Spania kontor', class: '' },
+];
+---
+
+<section class="bg-sand-light py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h2 class="font-serif text-4xl lg:text-5xl text-navy mb-2">{gallery.heading}</h2>
+      <p class="font-serif italic text-xl text-navy/50">{gallery.subheading}</p>
+    </div>
+
+    <!-- Masonry-style grid -->
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-3 lg:gap-4" style="grid-auto-rows: 220px">
+      {
+        images.map((img, i) => (
+          <div
+            class={`overflow-hidden bg-navy/10 ${i === 0 ? 'col-span-2 row-span-2' : ''}`}
+          >
+            <img
+              src={img.src}
+              alt={img.alt}
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-700 cursor-pointer"
+              loading="lazy"
+            />
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

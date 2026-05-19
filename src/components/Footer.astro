@@ -1,0 +1,100 @@
+---
+import type { Lang } from '../i18n/index';
+import { t, langLabels, langPaths } from '../i18n/index';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const tr = t(lang);
+const langs = Object.keys(langLabels) as Lang[];
+---
+
+<footer class="bg-navy-dark text-sand/60">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+
+      <!-- Brand -->
+      <div class="space-y-4">
+        <img
+          src="/assets/images/legal-logo.png"
+          alt="Legal Spania"
+          class="h-10 w-auto object-contain opacity-80"
+        />
+        <p class="text-sm leading-relaxed font-light italic text-sand/50">
+          {tr.footer.tagline}
+        </p>
+        <a
+          href={`tel:${tr.contact.phone.replace(/\s/g, '')}`}
+          class="block text-gold hover:text-gold-light font-medium transition-colors"
+        >
+          {tr.contact.phone}
+        </a>
+      </div>
+
+      <!-- Links -->
+      <div class="space-y-4">
+        <h4 class="text-sand/80 font-medium text-sm tracking-wider uppercase">La Manga</h4>
+        <ul class="space-y-3 text-sm">
+          <li>
+            <a
+              href={tr.footer.propertiesUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-sand transition-colors"
+            >
+              {tr.footer.propertiesLabel}
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.lamangabooking.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-sand transition-colors"
+            >
+              LaMangaBooking.com
+            </a>
+          </li>
+          <li>
+            <a
+              href={tr.footer.facebookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-sand transition-colors"
+            >
+              Facebook
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Language + contact -->
+      <div class="space-y-4">
+        <h4 class="text-sand/80 font-medium text-sm tracking-wider uppercase">Språk / Language</h4>
+        <div class="flex gap-2">
+          {
+            langs.map((l) => (
+              <a
+                href={langPaths[l]}
+                class={`px-3 py-1.5 text-xs font-bold tracking-wider border rounded transition-colors ${
+                  l === lang
+                    ? 'border-gold text-gold'
+                    : 'border-white/15 text-sand/40 hover:border-white/30 hover:text-sand/60'
+                }`}
+              >
+                {langLabels[l]}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-sand/30">{tr.footer.copyright}</p>
+      <p class="text-xs text-sand/30">La Manga del Mar Menor · Murcia · España</p>
+    </div>
+  </div>
+</footer>

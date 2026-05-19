@@ -1,0 +1,50 @@
+---
+import type { Translations } from '../i18n/index';
+
+interface Props {
+  tr: Translations;
+}
+
+const { tr } = Astro.props;
+const { about } = tr;
+---
+
+<section id="om-oss" class="bg-white py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Left: text -->
+      <div class="space-y-6 order-2 lg:order-1">
+        <p class="text-gold text-xs font-semibold tracking-[0.3em] uppercase">{about.eyebrow}</p>
+        <h2 class="font-serif text-4xl lg:text-5xl text-navy leading-tight">
+          {about.heading}
+        </h2>
+        <p class="font-serif italic text-xl text-navy/60">{about.subheading}</p>
+        <p class="text-navy/65 text-lg leading-relaxed font-light">{about.text}</p>
+        <div class="flex items-center gap-3 pt-4">
+          <div class="w-8 h-px bg-gold"></div>
+          <span class="text-gold text-sm font-semibold tracking-wider">{about.established}</span>
+        </div>
+      </div>
+
+      <!-- Right: images -->
+      <div class="grid grid-cols-2 gap-4 order-1 lg:order-2">
+        <div class="aspect-[3/4] overflow-hidden">
+          <img
+            src="/assets/images/om-oss-portrett.jpeg"
+            alt="Legal Spania team"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+          />
+        </div>
+        <div class="aspect-[3/4] mt-8 overflow-hidden">
+          <img
+            src="/assets/images/kontor-bilde.jpg"
+            alt="Legal Spania kontor"
+            class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+          />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

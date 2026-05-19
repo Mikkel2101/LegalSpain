@@ -1,0 +1,43 @@
+---
+import type { Translations } from '../i18n/index';
+
+interface Props {
+  tr: Translations;
+}
+
+const { tr } = Astro.props;
+const { trust } = tr;
+---
+
+<section class="bg-navy py-24 lg:py-32 relative overflow-hidden">
+  <!-- Subtle background texture -->
+  <div class="absolute inset-0 opacity-5">
+    <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 48px 48px;"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+
+    <!-- Big number + heading -->
+    <div class="text-center mb-20">
+      <div class="flex items-baseline justify-center gap-3 mb-4">
+        <span class="font-serif text-7xl lg:text-9xl text-gold leading-none">{trust.years}</span>
+        <span class="font-serif text-2xl lg:text-3xl text-sand/60 italic">{trust.yearsLabel}</span>
+      </div>
+      <h2 class="font-serif text-3xl lg:text-4xl text-white mb-4">{trust.heading}</h2>
+      <p class="text-sand/55 text-lg max-w-xl mx-auto font-light">{trust.subheading}</p>
+    </div>
+
+    <!-- Three pillars -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+      {
+        trust.pillars.map((pillar, i) => (
+          <div class="text-center space-y-4 p-8 border border-white/10 bg-white/3 hover:bg-white/5 transition-colors duration-300">
+            <div class="w-px h-12 bg-gold mx-auto mb-6"></div>
+            <h3 class="font-serif text-xl text-white">{pillar.title}</h3>
+            <p class="text-sand/55 text-sm leading-relaxed font-light">{pillar.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
