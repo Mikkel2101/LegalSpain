@@ -18,8 +18,10 @@ export const langLabels: Record<Lang, string> = {
   es: 'ES',
 };
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 export const langPaths: Record<Lang, string> = {
-  no: '/',
-  en: '/en/',
-  es: '/es/',
+  no: `${base}/`,
+  en: `${base}/en/`,
+  es: `${base}/es/`,
 };
