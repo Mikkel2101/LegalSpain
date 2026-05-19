@@ -1,5 +1,6 @@
 ---
 import type { Translations } from '../i18n/index';
+import { img } from '../utils/asset';
 
 interface Props {
   tr: Translations;
@@ -9,11 +10,11 @@ const { tr } = Astro.props;
 const { gallery } = tr;
 
 const images = [
-  { src: '/assets/images/la-manga-strand.jpg', alt: 'La Manga strand', class: 'col-span-2 row-span-2' },
-  { src: '/assets/images/paradise-between-2-seas.jpg', alt: 'Paradis mellom to hav', class: '' },
-  { src: '/assets/images/las-velas-villa.jpg', alt: 'Las Velas villa', class: '' },
-  { src: '/assets/images/engelsk-hero-bakgrunn.jpg', alt: 'La Manga', class: '' },
-  { src: '/assets/images/kontor-bilde.jpg', alt: 'Legal Spania kontor', class: '' },
+  { src: img('/assets/images/la-manga-strand.jpg'), alt: 'La Manga strand' },
+  { src: img('/assets/images/paradise-between-2-seas.jpg'), alt: 'Paradis mellom to hav' },
+  { src: img('/assets/images/las-velas-villa.jpg'), alt: 'Las Velas villa' },
+  { src: img('/assets/images/engelsk-hero-bakgrunn.jpg'), alt: 'La Manga' },
+  { src: img('/assets/images/kontor-bilde.jpg'), alt: 'Legal Spania kontor' },
 ];
 ---
 

@@ -1,5 +1,6 @@
 ---
 import type { Translations } from '../i18n/index';
+import { img } from '../utils/asset';
 
 interface Props {
   tr: Translations;
@@ -13,7 +14,7 @@ const { booking } = tr;
   <!-- Background image with strong overlay -->
   <div class="absolute inset-0">
     <img
-      src="/assets/images/paradise-between-2-seas.jpg"
+      src={img('/assets/images/paradise-between-2-seas.jpg')}
       alt="La Manga – paradis mellom to hav"
       class="w-full h-full object-cover object-center"
     />

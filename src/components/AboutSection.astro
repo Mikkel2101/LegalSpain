@@ -1,5 +1,6 @@
 ---
 import type { Translations } from '../i18n/index';
+import { img } from '../utils/asset';
 
 interface Props {
   tr: Translations;
@@ -31,14 +32,14 @@ const { about } = tr;
       <div class="grid grid-cols-2 gap-4 order-1 lg:order-2">
         <div class="aspect-[3/4] overflow-hidden">
           <img
-            src="/assets/images/om-oss-portrett.jpeg"
+            src={img('/assets/images/om-oss-portrett.jpeg')}
             alt="Legal Spania team"
             class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
           />
         </div>
         <div class="aspect-[3/4] mt-8 overflow-hidden">
           <img
-            src="/assets/images/kontor-bilde.jpg"
+            src={img('/assets/images/kontor-bilde.jpg')}
             alt="Legal Spania kontor"
             class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
           />

@@ -1,5 +1,6 @@
 ---
 import type { Translations } from '../i18n/index';
+import { img } from '../utils/asset';
 
 interface Props {
   tr: Translations;
@@ -12,7 +13,7 @@ const { tr } = Astro.props;
   <!-- Background image -->
   <div class="absolute inset-0">
     <img
-      src="/assets/images/hero-bakgrunn.jpg"
+      src={img('/assets/images/hero-bakgrunn.jpg')}
       alt="La Manga del Mar Menor"
       class="w-full h-full object-cover object-center"
     />
