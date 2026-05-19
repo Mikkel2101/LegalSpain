@@ -64,6 +64,15 @@ const { featured } = tr;
           </div>
         </div>
 
+        <!-- Amenity tags -->
+        {'amenities' in featured && (
+          <div class="flex flex-wrap gap-2">
+            {(featured as any).amenities.map((a: string) => (
+              <span class="text-xs border border-navy/20 text-navy/60 px-3 py-1">{a}</span>
+            ))}
+          </div>
+        )}
+
         <!-- CTA -->
         <a
           href="#kontakt"
@@ -74,26 +83,49 @@ const { featured } = tr;
       </div>
 
       <!-- Right: images -->
-      <div class="space-y-4">
+      <div class="space-y-3">
         <div class="aspect-[4/3] overflow-hidden">
           <img
-            src={img('/assets/images/la-manga-beach-club.jpg')}
-            alt="La Manga Beach Club"
+            src={img('/assets/images/beach-club-lmb1626-0.jpg')}
+            alt="La Manga Beach Club – utsikt"
             class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
           />
         </div>
-        <div class="grid grid-cols-2 gap-4">
+        <div class="grid grid-cols-3 gap-3">
           <div class="aspect-[4/3] overflow-hidden">
             <img
-              src={img('/assets/images/eiendom-eksterior.jpg')}
-              alt="Eiendom eksterior"
+              src={img('/assets/images/beach-club-lmb1626-2.jpg')}
+              alt="Stue"
               class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
             />
           </div>
           <div class="aspect-[4/3] overflow-hidden">
             <img
-              src={img('/assets/images/legal-11b-eiendom.jpg')}
-              alt="La Manga eiendom"
+              src={img('/assets/images/beach-club-lmb1626-5.jpg')}
+              alt="Terrasse med havutsikt"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+          <div class="aspect-[4/3] overflow-hidden">
+            <img
+              src={img('/assets/images/beach-club-lmb1626-6.jpg')}
+              alt="Soverom"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="aspect-[16/9] overflow-hidden">
+            <img
+              src={img('/assets/images/beach-club-lmb1626-1.jpg')}
+              alt="Basseng"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+          <div class="aspect-[16/9] overflow-hidden">
+            <img
+              src={img('/assets/images/beach-club-lmb1626-3.jpg')}
+              alt="Kjøkken"
               class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
             />
           </div>
