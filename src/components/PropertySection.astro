@@ -56,8 +56,8 @@ const { featured } = tr;
             {
               featured.specs.map((spec) => (
                 <div class="text-center border border-navy/10 p-4 bg-white/50">
-                  <p class="font-serif text-2xl text-navy font-medium">{spec.value}</p>
-                  <p class="text-navy/45 text-xs mt-1">{spec.label}</p>
+                  <p class="font-serif text-lg sm:text-xl lg:text-2xl text-navy font-medium leading-tight break-words">{spec.value}</p>
+                  <p class="text-navy/45 text-xs mt-1 leading-snug">{spec.label}</p>
                 </div>
               ))
             }
